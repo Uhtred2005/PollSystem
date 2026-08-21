@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "PollService\\PollService.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "VoteService\\VoteService.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "RealtimeService\\RealtimeService.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "ApiGateway\\ApiGateway.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

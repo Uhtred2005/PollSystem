@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="ApiGateway/ApiGateway.csproj" />
+  <Project Path="PollService.Tests/PollService.Tests.csproj" />
+  <Project Path="PollService/PollService.csproj" />
+  <Project Path="RealtimeService/RealtimeService.csproj" />
+  <Project Path="VoteService/VoteService.csproj" />
+</Solution>

@@ -1,0 +1,12 @@
+# Node/Frontend
+node_modules/
+dist/
+.env
+
+# .NET/Backend
+bin/
+obj/
+appsettings.Development.json
+*.user
+*.suo
+.vs/
