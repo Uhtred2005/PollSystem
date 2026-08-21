@@ -1,0 +1,36 @@
+services:
+  # 1. Private Service: Không lộ ra internet, chỉ Gateway mới gọi được
+  - type: pserv
+    name: poll-service
+    env: docker
+    rootDir: PollService
+    plan: free
+  
+  # 2. Private Service
+  - type: pserv
+    name: vote-service
+    env: docker
+    rootDir: VoteService
+    plan: free
+  
+  # 3. Private Service
+  - type: pserv
+    name: realtime-service
+    env: docker
+    rootDir: RealtimeService
+    plan: free
+
+  # 4. Web Service: Gateway đứng mũi chịu sào, kết nối internet
+  - type: web
+    name: poll-api-gateway
+    env: docker
+    rootDir: ApiGateway
+    plan: free
+    # Tự động ghi đè "localhost" trong file appsettings.json thành link nội bộ của Render
+    envVars:
+      - key: ReverseProxy__Clusters__poll-cluster__Destinations__destination1__Address
+        value: http://poll-service:8080
+      - key: ReverseProxy__Clusters__vote-cluster__Destinations__destination1__Address
+        value: http://vote-service:8080
+      - key: ReverseProxy__Clusters__realtime-cluster__Destinations__destination1__Address
+        value: http://realtime-service:8080
