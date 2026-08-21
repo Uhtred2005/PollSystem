@@ -1,28 +1,26 @@
 services:
-  # Chuyển hết thành web để lách luật gói Free
   - type: web
     name: poll-service
     env: docker
-    rootDir: PollService
+    dockerfilePath: ./PollService/Dockerfile
     plan: free
   
   - type: web
     name: vote-service
     env: docker
-    rootDir: VoteService
+    dockerfilePath: ./VoteService/Dockerfile
     plan: free
   
   - type: web
     name: realtime-service
     env: docker
-    rootDir: RealtimeService
+    dockerfilePath: ./RealtimeService/Dockerfile
     plan: free
 
-  # Gateway vẫn giữ nguyên là web
   - type: web
     name: poll-api-gateway
     env: docker
-    rootDir: ApiGateway
+    dockerfilePath: ./ApiGateway/Dockerfile
     plan: free
     envVars:
       - key: ReverseProxy__Clusters__poll-cluster__Destinations__destination1__Address
